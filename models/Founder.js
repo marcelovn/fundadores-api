@@ -10,6 +10,16 @@ const ChapterSummarySchema = new mongoose.Schema(
   { _id: false }
 );
 
+const RecommendedBookSchema = new mongoose.Schema(
+  {
+    id: String,
+    title: String,
+    author: String,
+    reason: String,
+  },
+  { _id: false }
+);
+
 const FounderSchema = new mongoose.Schema(
   {
     id: { type: String, index: true },
@@ -20,6 +30,8 @@ const FounderSchema = new mongoose.Schema(
     summary: String,
     region: String,
     chapterSummaries: [ChapterSummarySchema],
+    recommendedBooks: [RecommendedBookSchema],
+    hasPaidAccess: { type: Boolean, default: false },
   },
   { timestamps: false }
 );
