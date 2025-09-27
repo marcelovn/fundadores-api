@@ -6,7 +6,10 @@ const Founder = require('./models/Founder');
 const app = express();
 const PORT = process.env.PORT || 3000;
 const mongoUri = process.env.MONGODB_URI || 'mongodb+srv://mv_est:mv_est@cluster0.jklfu5a.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0';
-const dbName = process.env.MONGODB_DB_NAME;
+const dbName = process.env.MONGODB_DB_NAME || 'fundadores';
+
+// Debug log para verificar o nome do banco
+console.log('Database name:', dbName);
 
 app.use(cors());
 app.use(express.json());
